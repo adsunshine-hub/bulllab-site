@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>주식 이슈 · 불장연구소</title>
+<meta name="description" content="국내·해외 주식 시장 이슈를 가볍게 정리한 큐레이션." />
+<meta name="theme-color" content="#0b0b0d" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🔥</text></svg>" />
+<link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<header id="site-header"></header>
+
+<section class="hero">
+  <div class="container">
+    <h1>📈 <span class="fire">주식</span> 이슈</h1>
+    <p>코스피·코스닥·미국 증시에서 오늘 화제가 된 이슈를 가볍게 정리합니다.</p>
+  </div>
+</section>
+
+<div class="container"><div class="ad-slot ad-top" data-ad="top"></div></div>
+
+<main class="container layout">
+  <div>
+    <section class="section">
+      <div class="section-head"><h2>최신 주식 이슈</h2></div>
+      <div id="cards-stock" class="cards"></div>
+    </section>
+    <div class="ad-slot ad-inarticle" data-ad="inarticle"></div>
+    <section class="section">
+      <div class="section-head"><h2>주식 이슈 전체</h2></div>
+      <div id="list-stock"></div>
+    </section>
+    <div class="ad-slot ad-bottom" data-ad="bottom"></div>
+  </div>
+  <aside class="sidebar">
+    <div class="ad-slot ad-side" data-ad="side"></div>
+    <div class="widget">
+      <h4>📈 알아두기</h4>
+      <p style="margin:0;color:var(--text-dim);font-size:13.5px;line-height:1.7;">
+        본 글에 등장하는 종목·지수는 모두 공개된 정보를 기반으로 한 예시이며,
+        매수/매도 추천이 아닙니다.
+      </p>
+    </div>
+    <div class="ad-slot ad-side" data-ad="side"></div>
+  </aside>
+</main>
+
+<div class="ad-slot ad-mobile-fixed" data-ad="mobileFixed"></div>
+
+<footer id="site-footer"></footer>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/posts.js"></script>
+<script src="../assets/js/ads.js"></script>
+<script>
+  BullLab.loadCategoryCards("cards-stock", "stock", 6);
+  BullLab.loadCategoryList("list-stock", "stock", 50);
+</script>
+</body>
+</html>

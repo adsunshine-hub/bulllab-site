@@ -1,0 +1,17 @@
+# Cloudflare Pages 전역 헤더
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-Frame-Options: SAMEORIGIN
+
+# JSON / Markdown 캐시 짧게(자동 글 즉시 반영)
+/data/posts/*
+  Cache-Control: public, max-age=60
+
+/data/*
+  Cache-Control: public, max-age=300
+
+# 정적 자산은 길게
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

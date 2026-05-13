@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>유머 · 짤 · 불장연구소</title>
+<meta name="description" content="투자자들이 즐겨 보는 가벼운 짤과 유머 모음." />
+<meta name="theme-color" content="#0b0b0d" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🔥</text></svg>" />
+<link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<header id="site-header"></header>
+
+<section class="hero">
+  <div class="container">
+    <h1>😂 <span class="fire">유머</span> / 짤</h1>
+    <p>매일 시장에 지친 투자자들을 위한 짧고 가벼운 짤 모음입니다.</p>
+  </div>
+</section>
+
+<div class="container"><div class="ad-slot ad-top" data-ad="top"></div></div>
+
+<main class="container layout">
+  <div>
+    <section class="section">
+      <div class="section-head"><h2>최신 유머/짤</h2></div>
+      <div id="cards-humor" class="cards"></div>
+    </section>
+    <div class="ad-slot ad-inarticle" data-ad="inarticle"></div>
+    <section class="section">
+      <div class="section-head"><h2>전체 보기</h2></div>
+      <div id="list-humor"></div>
+    </section>
+    <div class="ad-slot ad-bottom" data-ad="bottom"></div>
+  </div>
+  <aside class="sidebar">
+    <div class="ad-slot ad-side" data-ad="side"></div>
+    <div class="widget">
+      <h4>📌 이용 안내</h4>
+      <p style="margin:0;color:var(--text-dim);font-size:13.5px;line-height:1.7;">
+        업로드된 자료는 운영자가 직접 작성하거나 출처를 명시한 자료만 게시합니다.
+        저작권 문제가 있는 콘텐츠는 즉시 삭제됩니다.
+      </p>
+    </div>
+    <div class="ad-slot ad-side" data-ad="side"></div>
+  </aside>
+</main>
+
+<div class="ad-slot ad-mobile-fixed" data-ad="mobileFixed"></div>
+
+<footer id="site-footer"></footer>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/posts.js"></script>
+<script src="../assets/js/ads.js"></script>
+<script>
+  BullLab.loadCategoryCards("cards-humor", "humor", 6);
+  BullLab.loadCategoryList("list-humor", "humor", 50);
+</script>
+</body>
+</html>

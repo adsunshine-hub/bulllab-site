@@ -1,0 +1,14 @@
+{
+  "name": "bulllab-post-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "불장연구소 자동 글 생성 스크립트 (Alpha Vantage + OpenAI)",
+  "type": "module",
+  "scripts": {
+    "generate": "node generate-post.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {}
+}

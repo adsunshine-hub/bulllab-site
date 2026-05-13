@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>투자자 게시판 · 불장연구소</title>
+<meta name="description" content="불장연구소에서 발행한 글을 게시판 형태로 모아봅니다." />
+<meta name="theme-color" content="#0b0b0d" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🔥</text></svg>" />
+<link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<header id="site-header"></header>
+
+<section class="hero">
+  <div class="container">
+    <h1>💬 투자자 <span class="fire">게시판</span></h1>
+    <p>발행된 모든 글을 시간 순으로 모아 보여 드립니다. 카테고리는 좌측 태그를 확인하세요.</p>
+  </div>
+</section>
+
+<div class="container"><div class="ad-slot ad-top" data-ad="top"></div></div>
+
+<main class="container layout">
+  <div>
+    <section class="section">
+      <div class="section-head"><h2>전체 글</h2></div>
+      <div id="list-all"></div>
+    </section>
+    <div class="ad-slot ad-bottom" data-ad="bottom"></div>
+  </div>
+  <aside class="sidebar">
+    <div class="ad-slot ad-side" data-ad="side"></div>
+    <div class="widget">
+      <h4>💡 안내</h4>
+      <p style="margin:0;color:var(--text-dim);font-size:13.5px;line-height:1.7;">
+        본 게시판은 자유 글쓰기 기능을 제공하지 않으며,
+        운영자가 발행한 정보 큐레이션 글만 노출됩니다.
+      </p>
+    </div>
+    <div class="ad-slot ad-side" data-ad="side"></div>
+  </aside>
+</main>
+
+<div class="ad-slot ad-mobile-fixed" data-ad="mobileFixed"></div>
+
+<footer id="site-footer"></footer>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/posts.js"></script>
+<script src="../assets/js/ads.js"></script>
+<script>BullLab.loadAllList("list-all", 100);</script>
+</body>
+</html>
