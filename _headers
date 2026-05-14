@@ -12,6 +12,8 @@
 /data/*
   Cache-Control: public, max-age=300
 
-# 정적 자산은 길게
+# 정적 자산 캐시 — immutable 은 강력 새로고침도 무시하므로 제거.
+# (파일명에 hash 가 없는 사이트라 immutable 부적합.
+#  필요시 HTML 의 link href 에 ?v=날짜 로 캐시 버스팅 사용)
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600

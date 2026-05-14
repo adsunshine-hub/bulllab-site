@@ -98,17 +98,39 @@ img, iframe, video, embed {
    - 카드/위젯 padding 을 줄여서 좁은 화면에서도 콘텐츠 공간 확보 */
 @media (max-width: 600px) {
   *, *::before, *::after {
-    min-width: 0;
-    max-width: 100%;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
-  .container { padding: 0 14px; }
+  .container {
+    padding: 0 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    overflow: hidden;
+  }
+  .layout, main, section, aside, header, footer, .hero {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
   .card, .widget, .post-article, .form-wrap { padding: 14px; }
-  .cards { grid-template-columns: 1fr; gap: 12px; }
+  .cards { grid-template-columns: 1fr !important; gap: 12px; }
   .card h3 { font-size: 15px; }
   .card .excerpt { font-size: 13.5px; }
   .section { margin: 28px 0; }
   /* 광고는 짤려도 OK — 다른 광고로 대체됨 */
-  .ad-slot { overflow: hidden; }
+  .ad-slot, .ad-slot a {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+  .ad-slot img {
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+    margin: 0 auto;
+  }
 }
 
 /* ====== 헤더 ====== */
