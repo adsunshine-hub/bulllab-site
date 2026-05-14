@@ -388,7 +388,8 @@ button, input, select, textarea {
   overflow: hidden;
 }
 
-.ad-slot::after {
+/* placeholder 상태에서만 "AD" 라벨 노출 */
+.ad-slot:not(.filled)::after {
   content: "AD";
   position: absolute; top: 6px; right: 8px;
   font-size: 10px; font-weight: 700;
@@ -399,13 +400,35 @@ button, input, select, textarea {
   border-radius: 3px;
 }
 
-.ad-slot a { display: block; width: 100%; height: 100%; }
-.ad-slot img { width: 100%; height: 100%; object-fit: cover; }
+/* 실제 배너가 들어가면 배경/테두리 제거 (파일조 배너 자체가 디자인을 가짐) */
+.ad-slot.filled {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
 
-.ad-top      { min-height: 100px; margin: 16px 0; }
-.ad-side     { min-height: 280px; }
-.ad-inarticle { min-height: 120px; margin: 24px 0; }
-.ad-bottom   { min-height: 200px; margin: 28px 0 12px; }
+.ad-slot a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+/* 배너는 원본 크기 유지 (지정된 width/height) */
+.ad-slot.filled img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* 슬롯별 최소 높이 (파일조 배너 사이즈 기준) */
+.ad-top         { min-height: 60px;  margin: 16px 0; }   /* 468x60  */
+.ad-side        { min-height: 240px; }                    /* 사이드 공통 */
+.ad-side-top    { min-height: 240px; }                    /* 280x240 */
+.ad-side-bottom { min-height: 250px; }                    /* 250x250 */
+.ad-inarticle   { min-height: 60px;  margin: 24px 0; }   /* 410x60  */
+.ad-bottom      { min-height: 100px; margin: 28px 0 12px; } /* 400x100 */
 
 /* 모바일 하단 고정 */
 .ad-mobile-fixed {

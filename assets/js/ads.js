@@ -2,18 +2,25 @@
    광고 영역 렌더러
    - data/ads.json 설정을 읽어 각 ad-slot 에 배너를 채움
    - enabled:false 면 "광고 영역 준비중" placeholder 유지
-   - 사용법: <div class="ad-slot ad-top" data-ad="top"></div>
+   - 사용법:
+       <div class="ad-slot ad-top"        data-ad="top"></div>
+       <div class="ad-slot ad-side-top"   data-ad="sideTop"></div>
+       <div class="ad-slot ad-inarticle"  data-ad="inarticle"></div>
+       <div class="ad-slot ad-side-bottom" data-ad="sideBottom"></div>
+       <div class="ad-slot ad-bottom"     data-ad="bottom"></div>
    ========================================================= */
 (function () {
   const SLOT_SELECTOR = "[data-ad]";
 
   // 기본 placeholder 텍스트
   const PLACEHOLDER_LABEL = {
-    top:        "광고 영역 준비중 · 메인 상단 (728×90 권장)",
-    side:       "광고 영역 준비중 · 사이드 (300×250 권장)",
-    inarticle:  "광고 영역 준비중 · 본문 중간",
-    bottom:     "광고 영역 준비중 · 글 하단",
-    mobileFixed:"광고 영역 준비중 · 모바일 하단 고정"
+    top:         "광고 영역 준비중 · 메인 상단 (468×60)",
+    side:        "광고 영역 준비중 · 사이드",
+    sideTop:     "광고 영역 준비중 · 사이드 상단 (280×240)",
+    sideBottom:  "광고 영역 준비중 · 사이드 하단 (250×250)",
+    inarticle:   "광고 영역 준비중 · 본문 중간 (410×60)",
+    bottom:      "광고 영역 준비중 · 글 하단 (400×100)",
+    mobileFixed: "광고 영역 준비중 · 모바일 하단 고정"
   };
 
   function configPath() {
@@ -40,9 +47,14 @@
     img.src = cfg.imageUrl;
     img.alt = cfg.alt || "광고";
     img.loading = "lazy";
+    img.style.border = "0";
+    // 고정 사이즈가 지정된 경우(파일조 배너처럼) 자연 크기 유지
+    if (cfg.width)  { img.width  = cfg.width;  }
+    if (cfg.height) { img.height = cfg.height; }
 
     a.appendChild(img);
     slot.innerHTML = "";
+    slot.classList.add("filled");
     slot.appendChild(a);
 
     // 모바일 하단 고정 닫기 버튼

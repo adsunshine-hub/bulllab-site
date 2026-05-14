@@ -59,7 +59,7 @@
             <h5>🔥 불장연구소</h5>
             <p style="margin:0;line-height:1.6;">
               코인 · 주식 · 경제 이슈를 가볍게 정리하는<br>
-              개인 운영 정보 큐레이션 사이트입니다.
+              정보 큐레이션 사이트입니다.
             </p>
             <p style="margin-top:10px;color:var(--text-mute);font-size:12px;">
               본 사이트는 투자 권유가 아니며,<br>
@@ -86,8 +86,16 @@
             </ul>
           </div>
         </div>
+        <div class="container" style="border-top:1px solid var(--border);margin-top:20px;padding-top:18px;font-size:12px;color:var(--text-mute);line-height:1.8;">
+          <strong style="color:var(--text-dim);">㈜애드선샤인</strong>
+          &nbsp;|&nbsp; 대표: 이동주
+          &nbsp;|&nbsp; 사업자등록번호: 681-81-02280
+          &nbsp;|&nbsp; 통신판매업 신고: 제 2021-성남분당A-0202호<br>
+          주소: 경기도 성남시 분당구 황새울로200번길 9-7, 현대판테온I오피스텔 1009호 (수내동)
+          &nbsp;|&nbsp; 이메일: <a href="mailto:help.adsunshine@gmail.com" style="color:var(--text-dim);">help.adsunshine@gmail.com</a>
+        </div>
         <div class="container copyright">
-          © ${y} bulllab.kr · 불장연구소 · All rights reserved.
+          © ${y} bulllab.kr · 불장연구소 · ㈜애드선샤인 · All rights reserved.
         </div>
       </footer>
     `;
