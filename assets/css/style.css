@@ -30,6 +30,8 @@
 html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
@@ -39,10 +41,9 @@ html, body {
   word-break: keep-all;
 }
 
-/* 모바일에서 광고/이미지가 viewport 초과해 헤더 옆으로 새어나오지 않도록 가로 스크롤 차단
-   ※ 'hidden' 은 자손 sticky 요소를 깨뜨리므로 'clip' 사용 (모던 브라우저 호환) */
+/* fixed 헤더(높이 64px) 가 본문을 가리지 않도록 위 여백 확보 */
 body {
-  overflow-x: clip;
+  padding-top: 64px;
 }
 
 a {
@@ -80,12 +81,17 @@ button, input, select, textarea {
 }
 
 /* ====== 헤더 ====== */
+/* 모바일 일부 브라우저에서 sticky 가 부모 overflow / 초기 스크롤 상태에 영향 받아
+   처음 진입 시 같이 스크롤되는 문제 발생 → 안정적인 fixed 로 전환.
+   ※ body { padding-top: 64px } 로 헤더가 가리는 영역 보정함 */
 .site-header {
   background: linear-gradient(180deg, #14141a 0%, #0e0e12 100%);
   border-bottom: 1px solid var(--border);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .site-header__inner {
