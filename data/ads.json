@@ -1,51 +1,84 @@
 {
-  "_comment": "불장연구소 광고 영역 설정. 파일조 배너가 도착하면 imageUrl/clickUrl/enabled 값만 수정하면 됩니다. 전체 코드는 건드릴 필요 없습니다.",
+  "_comment": "불장연구소 광고 영역 설정. 파일조(filejo) 제휴 배너 적용 완료. 광고를 끄려면 enabled:false 로만 바꾸면 됩니다.",
   "_fields": {
     "enabled": "true 면 광고 노출, false 면 '광고 영역 준비중' placeholder 표시",
-    "imageUrl": "광고 이미지 URL (예: /assets/img/ads/top.png 또는 외부 URL)",
-    "clickUrl": "클릭 시 이동할 URL",
+    "imageUrl": "광고 이미지 URL (예: //wimg.filejo.com/partner_banner/filejo_468x60.gif)",
+    "clickUrl": "클릭 시 이동할 URL (파일조 제휴 링크)",
     "alt": "대체 텍스트 (접근성 및 SEO)",
-    "newTab": "true 면 새 창으로 열기"
+    "newTab": "true 면 새 창으로 열기",
+    "width": "배너 고정 가로(px) - 비워두면 100%로 채움",
+    "height": "배너 고정 세로(px) - 비워두면 자동"
   },
 
   "top": {
-    "label": "메인 상단 배너",
-    "enabled": false,
-    "imageUrl": "",
-    "clickUrl": "",
-    "alt": "파일조 광고",
+    "label": "메인 상단 배너 (파일조 468x60)",
+    "enabled": true,
+    "imageUrl": "//wimg.filejo.com/partner_banner/filejo_468x60.gif",
+    "clickUrl": "http://www.filejo.com/intro.php?joinid=adshine",
+    "alt": "파일조 - 클라우드 웹하드",
     "newTab": true,
-    "size": "최소 728×90 권장 (반응형)"
+    "width": 468,
+    "height": 60,
+    "size": "468×60"
   },
 
-  "side": {
-    "label": "사이드 배너",
-    "enabled": false,
-    "imageUrl": "",
-    "clickUrl": "",
-    "alt": "파일조 광고",
+  "sideTop": {
+    "label": "사이드 상단 배너 (파일조 280x240)",
+    "enabled": true,
+    "imageUrl": "//wimg.filejo.com/partner_banner/filejo_280x240.gif",
+    "clickUrl": "http://www.filejo.com/intro.php?joinid=adshine",
+    "alt": "파일조 - 클라우드 웹하드",
     "newTab": true,
-    "size": "최소 300×250 권장"
+    "width": 280,
+    "height": 240,
+    "size": "280×240"
   },
 
   "inarticle": {
-    "label": "글 본문 중간 배너",
-    "enabled": false,
-    "imageUrl": "",
-    "clickUrl": "",
-    "alt": "파일조 광고",
+    "label": "글 본문 중간 배너 (파일조 410x60)",
+    "enabled": true,
+    "imageUrl": "//wimg.filejo.com/partner_banner/filejo_410x60.gif",
+    "clickUrl": "http://www.filejo.com/intro.php?joinid=adshine",
+    "alt": "파일조 - 클라우드 웹하드",
     "newTab": true,
-    "size": "최소 728×90 또는 600×120 권장"
+    "width": 410,
+    "height": 60,
+    "size": "410×60"
+  },
+
+  "sideBottom": {
+    "label": "사이드 하단 배너 (파일조 250x250)",
+    "enabled": true,
+    "imageUrl": "//wimg.filejo.com/partner_banner/filejo_250x250.gif",
+    "clickUrl": "http://www.filejo.com/intro.php?joinid=adshine",
+    "alt": "파일조 - 클라우드 웹하드",
+    "newTab": true,
+    "width": 250,
+    "height": 250,
+    "size": "250×250"
   },
 
   "bottom": {
-    "label": "글 하단 배너",
+    "label": "글 하단 배너 (파일조 400x100)",
+    "enabled": true,
+    "imageUrl": "//wimg.filejo.com/partner_banner/filejo_400x100.gif",
+    "clickUrl": "http://www.filejo.com/intro.php?joinid=adshine",
+    "alt": "파일조 - 클라우드 웹하드",
+    "newTab": true,
+    "width": 400,
+    "height": 100,
+    "size": "400×100"
+  },
+
+  "side": {
+    "_legacy": "구버전 호환용. 새 코드에서는 sideTop / sideBottom 사용.",
+    "label": "사이드 배너 (구버전)",
     "enabled": false,
     "imageUrl": "",
     "clickUrl": "",
     "alt": "파일조 광고",
     "newTab": true,
-    "size": "최소 728×200 권장"
+    "size": "300×250"
   },
 
   "mobileFixed": {
