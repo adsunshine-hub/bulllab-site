@@ -37,6 +37,9 @@ html, body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   word-break: keep-all;
+  /* 모바일에서 광고/이미지가 viewport 초과해 헤더 옆으로 새어나오지 않도록 가로 스크롤 차단 */
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 a {
@@ -414,12 +417,22 @@ button, input, select, textarea {
   line-height: 0;
 }
 
-/* 배너는 원본 크기 유지 (지정된 width/height) */
+/* 배너는 원본 크기 유지 (지정된 width/height) — 단 모바일에서는 viewport 에 맞춰 축소 */
 .ad-slot.filled img {
   width: auto;
   height: auto;
   max-width: 100%;
   display: block;
+}
+
+/* ads.js 가 img.width / img.height HTML 속성을 강제로 박는 경우에도
+   모바일 viewport 초과를 막기 위해 !important 로 max-width 보장 */
+.ad-slot.filled a {
+  max-width: 100%;
+}
+.ad-slot.filled a img {
+  max-width: 100% !important;
+  height: auto !important;
 }
 
 /* 슬롯별 최소 높이 (파일조 배너 사이즈 기준) */

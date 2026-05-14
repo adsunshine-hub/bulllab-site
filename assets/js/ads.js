@@ -48,9 +48,12 @@
     img.alt = cfg.alt || "광고";
     img.loading = "lazy";
     img.style.border = "0";
-    // 고정 사이즈가 지정된 경우(파일조 배너처럼) 자연 크기 유지
-    if (cfg.width)  { img.width  = cfg.width;  }
-    if (cfg.height) { img.height = cfg.height; }
+    // CLS(Layout Shift) 방지용 자연 크기 힌트만 제공.
+    // 실제 표시 크기는 CSS(max-width:100% / height:auto) 가 결정 — 모바일에서 비율 유지하며 축소.
+    if (cfg.width && cfg.height) {
+      img.setAttribute("width",  cfg.width);
+      img.setAttribute("height", cfg.height);
+    }
 
     a.appendChild(img);
     slot.innerHTML = "";
