@@ -64,8 +64,20 @@ button, input, select, textarea {
 /* ====== 레이아웃 ====== */
 .container {
   max-width: var(--max-w);
+  width: 100%;          /* 자식이 부모를 밀어내 viewport 를 초과하는 것 차단 */
   margin: 0 auto;
   padding: 0 20px;
+}
+
+/* 모바일 안전망 — 콘텐츠 박스/이미지가 viewport 를 절대 초과하지 않도록 강제
+   (우측만 짤려 보이는 좌우 비대칭 현상 차단) */
+.card, .widget, .section, .post-list, .form-wrap, .post-article,
+.ad-slot, .ad-slot a, .hero, .layout {
+  max-width: 100%;
+}
+img, iframe, video, embed {
+  max-width: 100%;
+  height: auto;
 }
 
 .layout {
@@ -427,10 +439,15 @@ button, input, select, textarea {
 }
 
 .ad-slot a {
-  display: inline-flex;
+  /* inline-flex 는 자식 자연 너비대로 늘어나 부모를 밀어내는 부작용이 있어
+     flex + width:100% 로 변경. 광고 이미지는 max-width:100% 로 자동 축소 */
+  display: flex;
   align-items: center;
   justify-content: center;
   line-height: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 /* 배너는 원본 크기 유지 (지정된 width/height) — 단 모바일에서는 viewport 에 맞춰 축소 */
@@ -445,10 +462,13 @@ button, input, select, textarea {
    모바일 viewport 초과를 막기 위해 !important 로 max-width 보장 */
 .ad-slot.filled a {
   max-width: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 .ad-slot.filled a img {
   max-width: 100% !important;
   height: auto !important;
+  margin: 0 auto;    /* 컨테이너보다 작은 광고면 가운데 정렬 */
 }
 
 /* 슬롯별 최소 높이 (파일조 배너 사이즈 기준) */
