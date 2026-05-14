@@ -92,6 +92,25 @@ img, iframe, video, embed {
   .sidebar { order: 2; }
 }
 
+/* ====== 모바일 안전 보강 (≤ 600px) ======
+   - 어떤 요소도 부모 폭을 초과하지 못하게 강제
+   - flex/grid 자식이 자기 콘텐츠 자연 폭으로 부풀어 viewport 를 미는 케이스 차단
+   - 카드/위젯 padding 을 줄여서 좁은 화면에서도 콘텐츠 공간 확보 */
+@media (max-width: 600px) {
+  *, *::before, *::after {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .container { padding: 0 14px; }
+  .card, .widget, .post-article, .form-wrap { padding: 14px; }
+  .cards { grid-template-columns: 1fr; gap: 12px; }
+  .card h3 { font-size: 15px; }
+  .card .excerpt { font-size: 13.5px; }
+  .section { margin: 28px 0; }
+  /* 광고는 짤려도 OK — 다른 광고로 대체됨 */
+  .ad-slot { overflow: hidden; }
+}
+
 /* ====== 헤더 ====== */
 /* 모바일 일부 브라우저에서 sticky 가 부모 overflow / 초기 스크롤 상태에 영향 받아
    처음 진입 시 같이 스크롤되는 문제 발생 → 안정적인 fixed 로 전환.
@@ -253,7 +272,9 @@ img, iframe, video, embed {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  /* min(280px, 100%) — 모바일에서 viewport 가 280px 보다 좁으면 100% 사용해
+     카드가 부모를 밀어내는 것을 방지 */
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: 16px;
 }
 
