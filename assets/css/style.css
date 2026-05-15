@@ -294,9 +294,11 @@ img, iframe, video, embed {
 
 .cards {
   display: grid;
-  /* min(280px, 100%) — 모바일에서 viewport 가 280px 보다 좁으면 100% 사용해
+  /* auto-fit: 카드가 1개일 때 빈 트랙이 접혀서 가용 폭 전체로 늘어남.
+     auto-fill 이면 카드 1개여도 옆에 빈 트랙이 남아 우측이 비어보임.
+     min(280px, 100%) — 모바일에서 viewport 가 좁으면 100% 사용해
      카드가 부모를 밀어내는 것을 방지 */
-  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 16px;
 }
 
