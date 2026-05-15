@@ -70,9 +70,11 @@ button, input, select, textarea {
 }
 
 /* 모바일 안전망 — 콘텐츠 박스/이미지가 viewport 를 절대 초과하지 않도록 강제
-   (우측만 짤려 보이는 좌우 비대칭 현상 차단) */
+   (우측만 짤려 보이는 좌우 비대칭 현상 차단)
+   ※ .layout 은 .container 가 max-width 를 관리하므로 여기서 제외.
+     포함하면 .container 의 1080px 를 100% 로 덮어써서 main 만 가운데 정렬이 풀림 */
 .card, .widget, .section, .post-list, .form-wrap, .post-article,
-.ad-slot, .ad-slot a, .hero, .layout {
+.ad-slot, .ad-slot a, .hero {
   max-width: 100%;
 }
 img, iframe, video, embed {
