@@ -84,6 +84,12 @@
               <li><a href="${BASE}/pages/privacy.html">개인정보처리방침</a></li>
               <li><a href="${BASE}/pages/terms.html">이용약관</a></li>
             </ul>
+            <div class="visitor-counter" aria-label="내 방문 기록">
+              <span>오늘 방문</span>
+              <strong id="visitor-today">-</strong>
+              <span>전체 방문</span>
+              <strong id="visitor-total">-</strong>
+            </div>
           </div>
         </div>
         <div class="container" style="border-top:1px solid var(--border);margin-top:20px;padding-top:18px;font-size:12px;color:var(--text-mute);line-height:1.8;">
@@ -101,9 +107,40 @@
     `;
   }
 
+  function updateVisitorCounter() {
+    const todayEl = document.getElementById("visitor-today");
+    const totalEl = document.getElementById("visitor-total");
+    if (!todayEl || !totalEl) return;
+
+    try {
+      const today = new Date().toLocaleDateString("sv-SE");
+      const savedDate = localStorage.getItem("bulllab_visit_date");
+      let todayCount = Number(localStorage.getItem("bulllab_visit_today") || 0);
+      let totalCount = Number(localStorage.getItem("bulllab_visit_total") || 0);
+
+      if (savedDate !== today) {
+        todayCount = 0;
+        localStorage.setItem("bulllab_visit_date", today);
+      }
+
+      todayCount += 1;
+      totalCount += 1;
+
+      localStorage.setItem("bulllab_visit_today", String(todayCount));
+      localStorage.setItem("bulllab_visit_total", String(totalCount));
+
+      todayEl.textContent = todayCount.toLocaleString("ko-KR");
+      totalEl.textContent = totalCount.toLocaleString("ko-KR");
+    } catch (e) {
+      todayEl.textContent = "확인 불가";
+      totalEl.textContent = "확인 불가";
+    }
+  }
+
   function init() {
     renderHeader();
     renderFooter();
+    updateVisitorCounter();
   }
 
   if (document.readyState === "loading") {

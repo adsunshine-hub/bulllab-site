@@ -695,6 +695,25 @@ img, iframe, video, embed {
 .site-footer ul { list-style: none; padding: 0; margin: 0; }
 .site-footer li { margin-bottom: 6px; }
 
+.visitor-counter {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-soft);
+  color: var(--text-mute);
+  font-size: 12px;
+}
+
+.visitor-counter strong {
+  color: var(--accent-2);
+  font-size: 13px;
+  text-align: right;
+}
+
 .site-footer .copyright {
   border-top: 1px solid var(--border);
   margin-top: 24px;
