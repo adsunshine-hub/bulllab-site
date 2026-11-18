@@ -216,3 +216,7 @@ npx serve .
 - 새 글은 pages/에 고유한 HTML 파일로 작성하고 게시판 목록과 scripts/generate-sitemap.js의 고정 페이지 목록을 갱신합니다. 공식 자료의 출처와 확인 날짜를 기록하세요.
 - node scripts/generate-sitemap.js는 고정 페이지와 data/posts/index.json에 등록된 글의 주소를 sitemap.xml로 생성합니다. 본문이 없거나 슬러그가 잘못되거나 중복이면 실패합니다. 수동 변경 시 실행 후 함께 커밋하며, 자동 글 생성 워크플로도 사이트맵을 갱신합니다. 기존 글은 자바스크립트로 본문을 불러옵니다.
 - main에 반영하면 Cloudflare가 빌드 및 배포합니다. 배포 상태와 게시판·글·사이트맵의 공개 내용을 확인하고 Search Console에서 색인 상태를 확인하세요. 사이트맵은 색인을 보장하지 않습니다.
+
+### 2026-11-18 공개 확인
+
+커밋 37738df가 원격 main에 반영된 것을 확인했습니다. /pages/apps.html, /pages/starive-chat-video-guide.html, /sitemap.xml은 HTTP 200으로 응답했고 사이트맵의 202개 URL에 두 페이지가 포함되었습니다. 공개 메인 HTML과 공용 메뉴 스크립트에서 새 게시판 링크가 없음을 확인했습니다. Cloudflare 프로덕션에서 커밋 37738df의 main 빌드가 준비 완료 및 100% 배포된 것을 확인했습니다 (버전 57bd5cb1). Search Console의 개별 페이지 색인 상태는 미확인입니다. Git 인증은 명령 실행 시 저장소 경로와 adsunshine-hub 계정을 지정했으며 해당 계정의 쓰기 권한을 확인했습니다. 기존 전역 설정은 변경하지 않았습니다.
