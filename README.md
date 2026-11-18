@@ -207,3 +207,12 @@ npx serve .
 ## 📮 문의
 
 `help.adsunshine@gmail.com` — ㈜애드선샤인
+
+
+## 앱과 서비스 게시판과 검색 등록
+
+- 운영 연결: GitHub 저장소 https://github.com/adsunshine-hub/bulllab-site 의 main 브랜치가 Cloudflare Workers 및 Pages의 bulllab-site 프로덕션에 연결되어 있으며 사용자 설정 도메인은 bulllab.kr입니다. 2026-11-18 Cloudflare 배포 화면에서 확인했습니다.
+- 별도 게시판은 /pages/apps.html, 글은 /pages/starive-chat-video-guide.html 입니다. 운영자가 작성한 정적 HTML이며 자유 글쓰기 기능은 없습니다. 메인과 공용 메뉴에는 링크하지 않습니다.
+- 새 글은 pages/에 고유한 HTML 파일로 작성하고 게시판 목록과 scripts/generate-sitemap.js의 고정 페이지 목록을 갱신합니다. 공식 자료의 출처와 확인 날짜를 기록하세요.
+- node scripts/generate-sitemap.js는 고정 페이지와 data/posts/index.json에 등록된 글의 주소를 sitemap.xml로 생성합니다. 본문이 없거나 슬러그가 잘못되거나 중복이면 실패합니다. 수동 변경 시 실행 후 함께 커밋하며, 자동 글 생성 워크플로도 사이트맵을 갱신합니다. 기존 글은 자바스크립트로 본문을 불러옵니다.
+- main에 반영하면 Cloudflare가 빌드 및 배포합니다. 배포 상태와 게시판·글·사이트맵의 공개 내용을 확인하고 Search Console에서 색인 상태를 확인하세요. 사이트맵은 색인을 보장하지 않습니다.
