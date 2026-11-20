@@ -1,0 +1,9 @@
+.git/
+.github/
+.wrangler/
+collector/
+functions/
+worker.mjs
+wrangler.toml
+.assetsignore
+node_modules/
