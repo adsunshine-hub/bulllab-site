@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const base = 'https://bulllab.kr';
-const pages = ['', 'pages/today-report.html', 'pages/coin.html', 'pages/stock.html', 'pages/board.html', 'pages/humor.html', 'pages/resources.html', 'pages/contact.html', 'pages/privacy.html', 'pages/terms.html', 'pages/apps.html', 'pages/starive-chat-video-guide.html'];
+const pages = ['', 'pages/today-report.html', 'pages/coin.html', 'pages/stock.html', 'pages/board.html', 'pages/humor.html', 'pages/resources.html', 'pages/contact.html', 'pages/privacy.html', 'pages/terms.html', 'pages/apps', 'pages/starive-chat-video-guide'];
 const index = JSON.parse(await fs.readFile(path.join(root, 'data/posts/index.json'), 'utf8'));
 if (!Array.isArray(index.posts)) throw new Error('posts must be an array');
 const urls = pages.map(p => `${base}/${p}`);
